@@ -6,7 +6,7 @@ import Link from "next/link"
 export default function LandingPage() {
   return (
     <div className="flex flex-col min-h-dvh bg-japan-white dark:bg-japan-black">
-      <header className="px-4 lg:px-6 h-20 flex items-center border-b border-gray-800">
+      <header className="px-4 lg:px-12 h-20 flex items-center border-b border-gray-800">
         <JapanRacerLogo />
         <nav className="ml-auto flex gap-4 sm:gap-6">
           <Link
@@ -32,10 +32,10 @@ export default function LandingPage() {
               <div className="flex flex-col justify-center space-y-4">
                 <div className="space-y-2">
                   <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none text-japan-white">
-                    Piezas de Rendimiento. <span className="text-japan-red">Estilo Agresivo.</span>
+                    Todo tu ecosistema de repuestos, en una sola plataforma. <span className="text-japan-red">Japani Racer</span>
                   </h1>
                   <p className="max-w-[600px] text-gray-300 md:text-xl">
-                    Su fuente B2B para piezas y accesorios de motocicleta de alta calidad. Pedidos optimizados, seguimiento en tiempo real y soporte dedicado.
+                    Desde talleres hasta distribuidores, JAPANI DIGITAL conecta todos los actores del negocio con tecnología, velocidad y precisión.
                   </p>
                 </div>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
