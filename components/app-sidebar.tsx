@@ -54,7 +54,12 @@ export function AppSidebar() {
         )}
       </SidebarHeader>
       <Separator className="bg-gray-700" />
-      <SidebarContent className="p-4">
+      <SidebarContent 
+        className={cn(
+          "flex flex-col", // Mantiene la estructura flex vertical
+          state === "expanded" ? "p-4" : "py-4 px-0" // Padding condicional
+        )}
+      >
         <SidebarGroup>
           <SidebarGroupLabel className="text-gray-400">Navegación</SidebarGroupLabel>
           <SidebarGroupContent>
@@ -64,14 +69,17 @@ export function AppSidebar() {
                   <SidebarMenuButton
                     asChild
                     isActive={pathname === item.href}
-                    className="data-[active=true]:bg-japan-red data-[active=true]:text-white hover:bg-japan-red/90 hover:text-white"
+                    className={cn(
+                      "data-[active=true]:bg-japan-red data-[active=true]:text-white hover:bg-japan-red/90 hover:text-white",
+                      state === "expanded" ? "px-3" : "px-0 w-full" 
+                    )}
                     tooltip={item.title}
                   >
                     <Link 
                       href={item.href}
                       className={cn(
-                        "flex items-center h-full",
-                        state === "expanded" ? "gap-3" : "justify-center w-full"
+                        "flex items-center h-full w-full",
+                        state === "expanded" ? "gap-3 justify-start" : "justify-center" 
                       )}
                     >
                       <item.icon className="h-5 w-5 flex-shrink-0" />
@@ -99,14 +107,17 @@ export function AppSidebar() {
                   <SidebarMenuButton
                     asChild
                     isActive={pathname === item.href}
-                    className="data-[active=true]:bg-japan-red data-[active=true]:text-white hover:bg-japan-red/90 hover:text-white"
+                    className={cn(
+                      "data-[active=true]:bg-japan-red data-[active=true]:text-white hover:bg-japan-red/90 hover:text-white",
+                      state === "expanded" ? "px-3" : "px-0 w-full" 
+                    )}
                     tooltip={item.title}
                   >
                     <Link 
                       href={item.href}
                       className={cn(
-                        "flex items-center h-full",
-                        state === "expanded" ? "gap-3" : "justify-center w-full"
+                        "flex items-center h-full w-full",
+                        state === "expanded" ? "gap-3 justify-start" : "justify-center" 
                       )}
                     >
                       <item.icon className="h-5 w-5 flex-shrink-0" />
@@ -125,19 +136,21 @@ export function AppSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
         <Separator className="my-4 bg-gray-700" />
-        <SidebarFooter className="p-4 mt-auto">
+        <SidebarFooter className={cn(state === "expanded" ? "p-4" : "py-4 px-0")} > {/* Aplicar padding condicional también al footer */}
           <SidebarMenu>
             <SidebarMenuItem>
-              {/* Envolver el contenido del botón en un Link si es una acción de navegación */}
               <SidebarMenuButton 
-                asChild /* Si es un link, usar asChild */
-                className="hover:bg-japan-red/90 hover:text-white w-full" /* w-full para que el link ocupe el botón */
+                asChild
+                className={cn(
+                  "hover:bg-japan-red/90 hover:text-white w-full", // w-full ya estaba aquí, lo cual es bueno
+                  state === "expanded" ? "px-3" : "px-0" // px-0 cuando colapsado
+                )}
               >
                 <Link 
-                  href="/login" // Asumiendo que cerrar sesión lleva a login
+                  href="/login"
                   className={cn(
-                    "flex items-center h-full", // Quitado w-full de aquí si el botón ya lo tiene
-                    state === "expanded" ? "gap-3" : "justify-center w-full" // w-full aquí para centrar el ícono si está colapsado
+                    "flex items-center h-full w-full",
+                    state === "expanded" ? "gap-3 justify-start" : "justify-center"
                   )}
                 >
                   <LogOut className="h-5 w-5 flex-shrink-0" />
