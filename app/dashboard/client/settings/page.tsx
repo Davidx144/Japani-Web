@@ -9,21 +9,21 @@ import { CreditCard } from "lucide-react"
 export default function SettingsPage() {
   return (
     <div className="space-y-6">
-      <h1 className="text-3xl font-bold tracking-tight text-japan-black dark:text-japan-white">Settings</h1>
+      <h1 className="text-3xl font-bold tracking-tight text-japan-black dark:text-japan-white">Configuración</h1>
 
       <div className="grid gap-6 md:grid-cols-[1fr_280px]">
         <div className="flex flex-col gap-6">
           <Card className="dark:bg-gray-900/50">
             <CardHeader>
-              <CardTitle className="text-japan-black dark:text-japan-white">Account Security</CardTitle>
+              <CardTitle className="text-japan-black dark:text-japan-white">Seguridad de la Cuenta</CardTitle>
               <CardDescription className="text-gray-600 dark:text-gray-400">
-                Manage your password and two-factor authentication.
+                Administre su contraseña y la autenticación de dos factores.
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="space-y-1.5">
                 <Label htmlFor="currentPassword" className="text-japan-black dark:text-japan-white">
-                  Current Password
+                  Contraseña Actual
                 </Label>
                 <Input
                   id="currentPassword"
@@ -33,7 +33,7 @@ export default function SettingsPage() {
               </div>
               <div className="space-y-1.5">
                 <Label htmlFor="newPassword" className="text-japan-black dark:text-japan-white">
-                  New Password
+                  Nueva Contraseña
                 </Label>
                 <Input
                   id="newPassword"
@@ -43,7 +43,7 @@ export default function SettingsPage() {
               </div>
               <div className="space-y-1.5">
                 <Label htmlFor="confirmPassword" className="text-japan-black dark:text-japan-white">
-                  Confirm New Password
+                  Confirmar Nueva Contraseña
                 </Label>
                 <Input
                   id="confirmPassword"
@@ -54,33 +54,33 @@ export default function SettingsPage() {
               <div className="flex items-center justify-between pt-2">
                 <Label htmlFor="twoFactor" className="flex flex-col gap-1.5">
                   <span className="font-medium text-japan-black dark:text-japan-white">
-                    Two-Factor Authentication (2FA)
+                    Autenticación de Dos Factores (2FA)
                   </span>
                   <span className="text-xs text-muted-foreground">
-                    Enhance your account security with an extra layer of protection.
+                    Mejore la seguridad de su cuenta con una capa adicional de protección.
                   </span>
                 </Label>
                 <Switch id="twoFactor" className="data-[state=checked]:bg-japan-red" />
               </div>
             </CardContent>
             <CardContent className="border-t pt-6 dark:border-gray-700">
-              <Button variant="destructive">Update Password</Button>
+              <Button variant="destructive">Actualizar Contraseña</Button>
             </CardContent>
           </Card>
 
           <Card className="dark:bg-gray-900/50">
             <CardHeader>
-              <CardTitle className="text-japan-black dark:text-japan-white">Notification Preferences</CardTitle>
+              <CardTitle className="text-japan-black dark:text-japan-white">Preferencias de Notificación</CardTitle>
               <CardDescription className="text-gray-600 dark:text-gray-400">
-                Choose how you want to be notified.
+                Elija cómo desea ser notificado.
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               {[
-                { id: "orderUpdates", label: "Order Updates", desc: "Get notified about your order status." },
-                { id: "shippingUpdates", label: "Shipping Updates", desc: "Receive tracking information." },
-                { id: "promotions", label: "Promotions & Offers", desc: "Stay updated on new deals." },
-                { id: "newsletter", label: "Newsletter", desc: "Receive our monthly newsletter." },
+                { id: "orderUpdates", label: "Actualizaciones de Pedidos", desc: "Reciba notificaciones sobre el estado de su pedido." },
+                { id: "shippingUpdates", label: "Actualizaciones de Envío", desc: "Reciba información de seguimiento." },
+                { id: "promotions", label: "Promociones y Ofertas", desc: "Manténgase actualizado sobre nuevas ofertas." },
+                { id: "newsletter", label: "Boletín Informativo", desc: "Reciba nuestro boletín mensual." },
               ].map((item) => (
                 <div key={item.id} className="flex items-center justify-between">
                   <Label htmlFor={item.id} className="flex flex-col gap-1.5">
@@ -96,7 +96,7 @@ export default function SettingsPage() {
               ))}
             </CardContent>
             <CardContent className="border-t pt-6 dark:border-gray-700">
-              <Button variant="destructive">Save Notification Settings</Button>
+              <Button variant="destructive">Guardar Configuración de Notificaciones</Button>
             </CardContent>
           </Card>
         </div>
@@ -104,31 +104,31 @@ export default function SettingsPage() {
         <div className="space-y-6">
           <Card className="dark:bg-gray-900/50">
             <CardHeader>
-              <CardTitle className="text-japan-black dark:text-japan-white">Preferences</CardTitle>
+              <CardTitle className="text-japan-black dark:text-japan-white">Preferencias</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="space-y-1.5">
                 <Label htmlFor="language" className="text-japan-black dark:text-japan-white">
-                  Language
+                  Idioma
                 </Label>
                 <Select defaultValue="en">
                   <SelectTrigger id="language" className="focus:ring-japan-red border-gray-600 dark:border-gray-700">
-                    <SelectValue placeholder="Select language" />
+                    <SelectValue placeholder="Seleccionar idioma" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="en">English</SelectItem>
-                    <SelectItem value="ja">日本語 (Japanese)</SelectItem>
-                    <SelectItem value="es">Español (Spanish)</SelectItem>
+                    <SelectItem value="en">Inglés</SelectItem>
+                    <SelectItem value="ja">日本語 (Japonés)</SelectItem>
+                    <SelectItem value="es">Español</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
               <div className="space-y-1.5">
                 <Label htmlFor="currency" className="text-japan-black dark:text-japan-white">
-                  Currency
+                  Moneda
                 </Label>
                 <Select defaultValue="usd">
                   <SelectTrigger id="currency" className="focus:ring-japan-red border-gray-600 dark:border-gray-700">
-                    <SelectValue placeholder="Select currency" />
+                    <SelectValue placeholder="Seleccionar moneda" />
                   </SelectTrigger>
                   <SelectContent>
                     <SelectItem value="usd">USD ($)</SelectItem>
@@ -139,24 +139,24 @@ export default function SettingsPage() {
               </div>
               <div className="flex items-center justify-between pt-2">
                 <Label htmlFor="darkMode" className="flex flex-col gap-1.5">
-                  <span className="font-medium text-japan-black dark:text-japan-white">Dark Mode</span>
-                  <span className="text-xs text-muted-foreground">Toggle dark theme for the interface.</span>
+                  <span className="font-medium text-japan-black dark:text-japan-white">Modo Oscuro</span>
+                  <span className="text-xs text-muted-foreground">Alternar tema oscuro para la interfaz.</span>
                 </Label>
                 <Switch id="darkMode" className="data-[state=checked]:bg-japan-red" />
               </div>
             </CardContent>
             <CardContent className="border-t pt-6 dark:border-gray-700">
               <Button variant="destructive" className="w-full">
-                Save Preferences
+                Guardar Preferencias
               </Button>
             </CardContent>
           </Card>
 
           <Card className="dark:bg-gray-900/50">
             <CardHeader>
-              <CardTitle className="text-japan-black dark:text-japan-white">Payment Methods</CardTitle>
+              <CardTitle className="text-japan-black dark:text-japan-white">Métodos de Pago</CardTitle>
               <CardDescription className="text-gray-600 dark:text-gray-400">
-                Manage your saved payment options.
+                Administre sus opciones de pago guardadas.
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -164,7 +164,7 @@ export default function SettingsPage() {
                 variant="outline"
                 className="w-full border-gray-600 dark:border-gray-700 hover:border-japan-red hover:text-japan-red"
               >
-                <CreditCard className="mr-2 h-4 w-4" /> Add New Payment Method
+                <CreditCard className="mr-2 h-4 w-4" /> Agregar Nuevo Método de Pago
               </Button>
             </CardContent>
           </Card>

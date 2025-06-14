@@ -20,16 +20,16 @@ import { JapanRacerLogo } from "@/components/japan-racer/logo"
 import { Separator } from "@/components/ui/separator"
 
 const clientNavItems = [
-  { title: "Dashboard", href: "/dashboard/client", icon: Home },
-  { title: "Catalog", href: "/dashboard/client/catalog", icon: Search },
-  { title: "My Orders", href: "/dashboard/client/orders", icon: ShoppingCart },
-  { title: "Shipment Tracking", href: "/dashboard/client/tracking", icon: Package },
-  { title: "Returns", href: "/dashboard/client/returns", icon: RotateCcw },
+  { title: "Panel de Control", href: "/dashboard/client", icon: Home },
+  { title: "Catálogo", href: "/dashboard/client/catalog", icon: Search },
+  { title: "Mis Pedidos", href: "/dashboard/client/orders", icon: ShoppingCart },
+  { title: "Seguimiento de Envíos", href: "/dashboard/client/tracking", icon: Package },
+  { title: "Devoluciones", href: "/dashboard/client/returns", icon: RotateCcw },
 ]
 
 const accountNavItems = [
-  { title: "Profile", href: "/dashboard/client/profile", icon: UserCircle },
-  { title: "Settings", href: "/dashboard/client/settings", icon: Settings },
+  { title: "Perfil", href: "/dashboard/client/profile", icon: UserCircle },
+  { title: "Configuración", href: "/dashboard/client/settings", icon: Settings },
 ]
 
 export function AppSidebar() {
@@ -59,7 +59,7 @@ export function AppSidebar() {
         <SidebarGroup>
           {" "}
           {/* [^1] */}
-          <SidebarGroupLabel className="text-gray-400">Navigation</SidebarGroupLabel> {/* [^1] */}
+          <SidebarGroupLabel className="text-gray-400">Navegación</SidebarGroupLabel> {/* [^1] */}
           <SidebarGroupContent>
             {" "}
             {/* [^1] */}
@@ -88,7 +88,7 @@ export function AppSidebar() {
         </SidebarGroup>
         <Separator className="my-4 bg-gray-700" />
         <SidebarGroup>
-          <SidebarGroupLabel className="text-gray-400">Account</SidebarGroupLabel>
+          <SidebarGroupLabel className="text-gray-400">Cuenta</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {accountNavItems.map((item) => (
@@ -116,9 +116,9 @@ export function AppSidebar() {
         {/* [^1] */}
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton className="hover:bg-japan-red/90 hover:text-white" tooltip="Logout">
+            <SidebarMenuButton className="hover:bg-japan-red/90 hover:text-white" tooltip="Cerrar Sesión">
               <LogOut className="h-5 w-5" />
-              <span>Logout</span>
+              <span>Cerrar Sesión</span>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>

@@ -10,41 +10,41 @@ export default function ReturnsPage() {
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <h1 className="text-3xl font-bold tracking-tight text-japan-black dark:text-japan-white">Request a Return</h1>
+        <h1 className="text-3xl font-bold tracking-tight text-japan-black dark:text-japan-white">Solicitar una Devolución</h1>
         <Button
           variant="outline"
           className="border-gray-600 dark:border-gray-700 hover:border-japan-red hover:text-japan-red"
         >
-          <RotateCcw className="mr-2 h-4 w-4" /> View Return History
+          <RotateCcw className="mr-2 h-4 w-4" /> Ver Historial de Devoluciones
         </Button>
       </div>
 
       <Card className="dark:bg-gray-900/50">
         <CardHeader>
-          <CardTitle className="text-japan-black dark:text-japan-white">New Return Request</CardTitle>
+          <CardTitle className="text-japan-black dark:text-japan-white">Nueva Solicitud de Devolución</CardTitle>
           <CardDescription className="text-gray-600 dark:text-gray-400">
-            Please fill out the form below to initiate a return for your order.
+            Por favor, complete el siguiente formulario para iniciar una devolución de su pedido.
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-6">
           <div className="grid md:grid-cols-2 gap-6">
             <div className="space-y-2">
               <Label htmlFor="orderId" className="text-japan-black dark:text-japan-white">
-                Order ID
+                ID de Pedido
               </Label>
               <Input
                 id="orderId"
-                placeholder="e.g., ORD-001"
+                placeholder="ej., ORD-001"
                 className="focus:ring-japan-red border-gray-600 dark:border-gray-700"
               />
             </div>
             <div className="space-y-2">
               <Label htmlFor="itemSku" className="text-japan-black dark:text-japan-white">
-                Product SKU / Part Number
+                SKU del Producto / Número de Pieza
               </Label>
               <Input
                 id="itemSku"
-                placeholder="e.g., AK-XYZ123"
+                placeholder="ej., AK-XYZ123"
                 className="focus:ring-japan-red border-gray-600 dark:border-gray-700"
               />
             </div>
@@ -52,37 +52,37 @@ export default function ReturnsPage() {
 
           <div className="space-y-2">
             <Label htmlFor="reason" className="text-japan-black dark:text-japan-white">
-              Reason for Return
+              Motivo de la Devolución
             </Label>
             <Select>
               <SelectTrigger className="focus:ring-japan-red border-gray-600 dark:border-gray-700">
-                <SelectValue placeholder="Select a reason" />
+                <SelectValue placeholder="Seleccione un motivo" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="wrong_item">Received wrong item</SelectItem>
-                <SelectItem value="damaged">Item arrived damaged</SelectItem>
-                <SelectItem value="defective">Item is defective</SelectItem>
-                <SelectItem value="no_longer_needed">No longer needed</SelectItem>
-                <SelectItem value="ordered_by_mistake">Ordered by mistake</SelectItem>
-                <SelectItem value="other">Other (please specify)</SelectItem>
+                <SelectItem value="wrong_item">Recibí un artículo incorrecto</SelectItem>
+                <SelectItem value="damaged">El artículo llegó dañado</SelectItem>
+                <SelectItem value="defective">El artículo es defectuoso</SelectItem>
+                <SelectItem value="no_longer_needed">Ya no lo necesito</SelectItem>
+                <SelectItem value="ordered_by_mistake">Pedido por error</SelectItem>
+                <SelectItem value="other">Otro (por favor especifique)</SelectItem>
               </SelectContent>
             </Select>
           </div>
 
           <div className="space-y-2">
             <Label htmlFor="comments" className="text-japan-black dark:text-japan-white">
-              Additional Comments (Optional)
+              Comentarios Adicionales (Opcional)
             </Label>
             <Textarea
               id="comments"
-              placeholder="Provide any additional details about your return request."
+              placeholder="Proporcione cualquier detalle adicional sobre su solicitud de devolución."
               className="min-h-[100px] focus:ring-japan-red border-gray-600 dark:border-gray-700"
             />
           </div>
 
           <div className="space-y-2">
             <Label htmlFor="photos" className="text-japan-black dark:text-japan-white">
-              Upload Photos (Optional)
+              Subir Fotos (Opcional)
             </Label>
             <div className="flex items-center justify-center w-full">
               <label
@@ -92,9 +92,9 @@ export default function ReturnsPage() {
                 <div className="flex flex-col items-center justify-center pt-5 pb-6">
                   <FilePlus2 className="w-8 h-8 mb-2 text-gray-500 dark:text-gray-400" />
                   <p className="mb-2 text-sm text-gray-500 dark:text-gray-400">
-                    <span className="font-semibold">Click to upload</span> or drag and drop
+                    <span className="font-semibold">Haga clic para subir</span> o arrastre y suelte
                   </p>
-                  <p className="text-xs text-gray-500 dark:text-gray-400">PNG, JPG, GIF up to 10MB</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-400">PNG, JPG, GIF hasta 10MB</p>
                 </div>
                 <Input id="dropzone-file" type="file" className="hidden" multiple />
               </label>
@@ -103,7 +103,7 @@ export default function ReturnsPage() {
 
           <div className="flex justify-end">
             <Button variant="destructive" size="lg">
-              Submit Return Request
+              Enviar Solicitud de Devolución
             </Button>
           </div>
         </CardContent>

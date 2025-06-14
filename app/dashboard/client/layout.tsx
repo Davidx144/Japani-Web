@@ -33,7 +33,7 @@ export default function ClientDashboardLayout({
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                 <Input
                   type="search"
-                  placeholder="Search parts, orders..."
+                  placeholder="Buscar piezas, pedidos..."
                   className="w-full appearance-none bg-muted pl-9 shadow-none md:w-2/3 lg:w-1/3 focus:ring-japan-red"
                 />
               </div>
@@ -41,7 +41,7 @@ export default function ClientDashboardLayout({
           </div>
           <Button variant="ghost" size="icon" className="rounded-full">
             <UserCircle className="h-6 w-6" />
-            <span className="sr-only">User Profile</span>
+            <span className="sr-only">Perfil de Usuario</span>
           </Button>
         </header>
         {/* 'flex-1' allows main to take up remaining vertical space within its parent.

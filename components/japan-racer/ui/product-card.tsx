@@ -35,7 +35,7 @@ export function ProductCard({ name, imageUrl, price, brand, partNumber }: Produc
       </CardContent>
       <CardFooter className="p-4 pt-0">
         <Button variant="destructive" className="w-full">
-          <PlusCircle className="mr-2 h-4 w-4" /> Add to Cart
+          <PlusCircle className="mr-2 h-4 w-4" /> Añadir al Carrito
         </Button>
       </CardFooter>
     </Card>

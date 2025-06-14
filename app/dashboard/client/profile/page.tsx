@@ -25,7 +25,7 @@ export default function ProfilePage() {
 
   return (
     <div className="space-y-6">
-      <h1 className="text-3xl font-bold tracking-tight text-japan-black dark:text-japan-white">My Profile</h1>
+      <h1 className="text-3xl font-bold tracking-tight text-japan-black dark:text-japan-white">Mi Perfil</h1>
 
       <div className="grid lg:grid-cols-3 gap-6">
         <div className="lg:col-span-1 space-y-6">
@@ -64,7 +64,7 @@ export default function ProfilePage() {
                 variant="outline"
                 className="w-full border-gray-600 dark:border-gray-700 hover:border-japan-red hover:text-japan-red"
               >
-                <Edit3 className="mr-2 h-4 w-4" /> Edit Avatar
+                <Edit3 className="mr-2 h-4 w-4" /> Editar Avatar
               </Button>
             </CardFooter>
           </Card>
@@ -73,16 +73,16 @@ export default function ProfilePage() {
         <div className="lg:col-span-2">
           <Card className="dark:bg-gray-900/50">
             <CardHeader>
-              <CardTitle className="text-japan-black dark:text-japan-white">Account Information</CardTitle>
+              <CardTitle className="text-japan-black dark:text-japan-white">Información de la Cuenta</CardTitle>
               <CardDescription className="text-gray-600 dark:text-gray-400">
-                Manage your personal and company details.
+                Administre sus datos personales y de la empresa.
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="grid md:grid-cols-2 gap-4">
                 <div className="space-y-1.5">
                   <Label htmlFor="fullName" className="text-japan-black dark:text-japan-white">
-                    Full Name
+                    Nombre Completo
                   </Label>
                   <Input
                     id="fullName"
@@ -92,7 +92,7 @@ export default function ProfilePage() {
                 </div>
                 <div className="space-y-1.5">
                   <Label htmlFor="email" className="text-japan-black dark:text-japan-white">
-                    Email Address
+                    Dirección de Correo Electrónico
                   </Label>
                   <Input
                     id="email"
@@ -105,7 +105,7 @@ export default function ProfilePage() {
               <div className="grid md:grid-cols-2 gap-4">
                 <div className="space-y-1.5">
                   <Label htmlFor="companyName" className="text-japan-black dark:text-japan-white">
-                    Company Name
+                    Nombre de la Empresa
                   </Label>
                   <Input
                     id="companyName"
@@ -115,7 +115,7 @@ export default function ProfilePage() {
                 </div>
                 <div className="space-y-1.5">
                   <Label htmlFor="phone" className="text-japan-black dark:text-japan-white">
-                    Phone Number
+                    Número de Teléfono
                   </Label>
                   <Input
                     id="phone"
@@ -126,10 +126,10 @@ export default function ProfilePage() {
               </div>
 
               <Separator className="my-4 dark:bg-gray-700" />
-              <h3 className="text-lg font-medium text-japan-black dark:text-japan-white">Shipping Address</h3>
+              <h3 className="text-lg font-medium text-japan-black dark:text-japan-white">Dirección de Envío</h3>
               <div className="space-y-1.5">
                 <Label htmlFor="street" className="text-japan-black dark:text-japan-white">
-                  Street Address
+                  Dirección
                 </Label>
                 <Input
                   id="street"
@@ -140,7 +140,7 @@ export default function ProfilePage() {
               <div className="grid md:grid-cols-3 gap-4">
                 <div className="space-y-1.5">
                   <Label htmlFor="city" className="text-japan-black dark:text-japan-white">
-                    City
+                    Ciudad
                   </Label>
                   <Input
                     id="city"
@@ -150,7 +150,7 @@ export default function ProfilePage() {
                 </div>
                 <div className="space-y-1.5">
                   <Label htmlFor="postalCode" className="text-japan-black dark:text-japan-white">
-                    Postal Code
+                    Código Postal
                   </Label>
                   <Input
                     id="postalCode"
@@ -160,7 +160,7 @@ export default function ProfilePage() {
                 </div>
                 <div className="space-y-1.5">
                   <Label htmlFor="country" className="text-japan-black dark:text-japan-white">
-                    Country
+                    País
                   </Label>
                   <Input
                     id="country"
@@ -172,7 +172,7 @@ export default function ProfilePage() {
             </CardContent>
             <CardFooter className="border-t pt-6 dark:border-gray-700">
               <Button variant="destructive" size="lg">
-                Save Changes
+                Guardar Cambios
               </Button>
             </CardFooter>
           </Card>

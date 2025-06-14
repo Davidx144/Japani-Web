@@ -10,8 +10,8 @@ import { cookies } from "next/headers" // [^1]
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Japan Racer",
-  description: "Motorcycle Parts & Accessories Platform",
+  title: "Corredor de Japón",
+  description: "Plataforma de Piezas y Accesorios para Motocicletas",
     generator: 'v0.dev'
 }
 

@@ -8,42 +8,42 @@ export default function TrackingPage() {
   const trackingInfo = {
     orderId: "ORD-001",
     trackingNumber: "1Z999AA10123456784",
-    status: "In Transit",
+    status: "En Tránsito", // "In Transit"
     estimatedDelivery: "2025-06-02",
     currentLocation: "Cityville, ST",
     lastUpdate: "2025-05-30 10:15 AM",
     history: [
-      { date: "2025-05-30 10:15 AM", status: "Departed from facility", location: "Cityville, ST" },
-      { date: "2025-05-29 08:00 PM", status: "Arrived at facility", location: "Cityville, ST" },
-      { date: "2025-05-28 05:30 PM", status: "Package picked up", location: "Originville, ST" },
+      { date: "2025-05-30 10:15 AM", status: "Salió de las instalaciones", location: "Cityville, ST" }, // "Departed from facility"
+      { date: "2025-05-29 08:00 PM", status: "Llegó a las instalaciones", location: "Cityville, ST" }, // "Arrived at facility"
+      { date: "2025-05-28 05:30 PM", status: "Paquete recogido", location: "Originville, ST" }, // "Package picked up"
     ],
   }
 
   const getStatusIcon = (status: string) => {
-    if (status.toLowerCase().includes("delivered")) return <PackageCheck className="h-8 w-8 text-green-500" />
-    if (status.toLowerCase().includes("transit") || status.toLowerCase().includes("departed"))
+    if (status.toLowerCase().includes("entregado")) return <PackageCheck className="h-8 w-8 text-green-500" /> // delivered
+    if (status.toLowerCase().includes("tránsito") || status.toLowerCase().includes("salió")) // transit / departed
       return <Truck className="h-8 w-8 text-blue-500 animate-pulse" />
     return <PackageX className="h-8 w-8 text-red-500" />
   }
 
   return (
     <div className="space-y-6">
-      <h1 className="text-3xl font-bold tracking-tight text-japan-black dark:text-japan-white">Shipment Tracking</h1>
+      <h1 className="text-3xl font-bold tracking-tight text-japan-black dark:text-japan-white">Seguimiento de Envíos</h1>
 
       <Card className="dark:bg-gray-900/50">
         <CardHeader>
-          <CardTitle className="text-japan-black dark:text-japan-white">Track Your Package</CardTitle>
+          <CardTitle className="text-japan-black dark:text-japan-white">Rastree Su Paquete</CardTitle>
           <CardDescription className="text-gray-600 dark:text-gray-400">
-            Enter your order ID or tracking number to see the latest updates.
+            Ingrese su ID de pedido o número de seguimiento para ver las últimas actualizaciones.
           </CardDescription>
         </CardHeader>
         <CardContent className="flex flex-col sm:flex-row gap-4">
           <Input
-            placeholder="Order ID or Tracking Number"
+            placeholder="ID de Pedido o Número de Seguimiento"
             className="flex-grow focus:ring-japan-red border-gray-600 dark:border-gray-700"
             defaultValue={trackingInfo.orderId} // Pre-fill for demo
           />
-          <Button variant="destructive">Track</Button>
+          <Button variant="destructive">Rastrear</Button>
         </CardContent>
       </Card>
 
@@ -53,10 +53,10 @@ export default function TrackingPage() {
             <div className="flex items-center justify-between">
               <div>
                 <CardTitle className="text-2xl text-japan-black dark:text-japan-white">
-                  Order: {trackingInfo.orderId}
+                  Pedido: {trackingInfo.orderId}
                 </CardTitle>
                 <CardDescription className="text-gray-600 dark:text-gray-400">
-                  Tracking #: {trackingInfo.trackingNumber}
+                  N.º de Seguimiento: {trackingInfo.trackingNumber}
                 </CardDescription>
               </div>
               {getStatusIcon(trackingInfo.status)}
@@ -67,28 +67,28 @@ export default function TrackingPage() {
               <div className="flex items-center gap-2 p-3 bg-muted dark:bg-gray-800 rounded-md">
                 <Truck className="h-5 w-5 text-japan-red" />
                 <div>
-                  <p className="font-semibold text-japan-black dark:text-japan-white">Status</p>
+                  <p className="font-semibold text-japan-black dark:text-japan-white">Estado</p>
                   <p className="text-gray-600 dark:text-gray-400">{trackingInfo.status}</p>
                 </div>
               </div>
               <div className="flex items-center gap-2 p-3 bg-muted dark:bg-gray-800 rounded-md">
                 <MapPin className="h-5 w-5 text-japan-red" />
                 <div>
-                  <p className="font-semibold text-japan-black dark:text-japan-white">Current Location</p>
+                  <p className="font-semibold text-japan-black dark:text-japan-white">Ubicación Actual</p>
                   <p className="text-gray-600 dark:text-gray-400">{trackingInfo.currentLocation}</p>
                 </div>
               </div>
               <div className="flex items-center gap-2 p-3 bg-muted dark:bg-gray-800 rounded-md">
                 <CalendarDays className="h-5 w-5 text-japan-red" />
                 <div>
-                  <p className="font-semibold text-japan-black dark:text-japan-white">Estimated Delivery</p>
+                  <p className="font-semibold text-japan-black dark:text-japan-white">Entrega Estimada</p>
                   <p className="text-gray-600 dark:text-gray-400">{trackingInfo.estimatedDelivery}</p>
                 </div>
               </div>
             </div>
 
             <div>
-              <h3 className="text-lg font-semibold mb-2 text-japan-black dark:text-japan-white">Tracking History</h3>
+              <h3 className="text-lg font-semibold mb-2 text-japan-black dark:text-japan-white">Historial de Seguimiento</h3>
               <div className="border rounded-md dark:border-gray-700">
                 {trackingInfo.history.map((event, index) => (
                   <div
@@ -121,7 +121,7 @@ export default function TrackingPage() {
                 ))}
               </div>
             </div>
-            <div className="text-xs text-muted-foreground text-center">Last updated: {trackingInfo.lastUpdate}</div>
+            <div className="text-xs text-muted-foreground text-center">Última actualización: {trackingInfo.lastUpdate}</div>
           </CardContent>
         </Card>
       )}
