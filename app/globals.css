@@ -34,13 +34,20 @@
 
     --radius: 0.5rem;
 
-    /* Custom Sidebar Variables (can be adjusted from shadcn/ui default) */
+    /* Custom Sidebar Variables from app/globals.css */
     --sidebar-background: 0 0% 3.9%; /* Dark background for sidebar - Japan Black */
     --sidebar-foreground: 0 0% 98%; /* Light foreground for sidebar text */
     --sidebar-border: 0 0% 14.9%; /* Slightly lighter border for dark sidebar */
     --sidebar-accent: 0 100% 50%; /* Red for active/hover states in sidebar */
     --sidebar-accent-foreground: 0 0% 100%; /* White text on red accent */
     --sidebar-ring: 0 100% 50%; /* Red for focus rings */
+
+    /* Chart variables from styles/globals.css */
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
   }
 
   .dark {
@@ -72,13 +79,20 @@
     --input: 0 0% 14.9%;
     --ring: 0 100% 50%; /* #FF0000 - Japan Red */
 
-    /* Custom Sidebar Variables for Dark Mode (can be same or adjusted) */
+    /* Custom Sidebar Variables for Dark Mode from app/globals.css */
     --sidebar-background: 0 0% 7%; /* Slightly lighter black for dark mode sidebar */
     --sidebar-foreground: 0 0% 90%;
     --sidebar-border: 0 0% 20%;
     --sidebar-accent: 0 100% 50%;
     --sidebar-accent-foreground: 0 0% 100%;
     --sidebar-ring: 0 100% 50%;
+
+    /* Chart variables for dark mode from styles/globals.css */
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
   }
 }
 
@@ -88,5 +102,12 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-family: Arial, Helvetica, sans-serif; /* Added from styles/globals.css */
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance; /* Added from styles/globals.css */
   }
 }
