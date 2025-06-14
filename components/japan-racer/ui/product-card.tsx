@@ -1,10 +1,11 @@
+"use client";
 import Image from "next/image"
 import { useContext } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { PlusCircle } from "lucide-react"
 import { CartContext } from "@/app/context/CartContext"
-import { toast } from "@/components/ui/sonner"
+import { toast } from "sonner"
 
 type ProductCardProps = {
   id: string
@@ -16,6 +17,7 @@ type ProductCardProps = {
 }
 
 export function ProductCard({ id, name, imageUrl, price, brand, partNumber }: ProductCardProps) {
+  console.log("CartContext in ProductCard:", CartContext); // Debugging line
   const { addToCart } = useContext(CartContext);
 
   const handleAddToCart = () => {
