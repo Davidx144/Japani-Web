@@ -18,6 +18,7 @@ import {
 } from "@/components/ui/sidebar" // [^1]
 import { JapanRacerLogo } from "@/components/japan-racer/logo"
 import { Separator } from "@/components/ui/separator"
+import { cn } from "@/lib/utils" // Import cn
 
 const clientNavItems = [
   { title: "Panel de Control", href: "/dashboard/client", icon: Home },
@@ -33,52 +34,54 @@ const accountNavItems = [
 ]
 
 export function AppSidebar() {
-  // [^1]
   const pathname = usePathname()
-  const { state } = useSidebar() // [^1]
+  const { state, isMobile } = useSidebar() // Añadir isMobile
 
   return (
-    <Sidebar collapsible="icon" className="border-r border-gray-700">
-      {" "}
-      {/* [^1] */}
-      <SidebarHeader className="p-4">
-        {" "}
-        {/* [^1] */}
+    // Añadido text-sidebar-foreground y bg-sidebar para consistencia
+    <Sidebar collapsible="icon" className="border-r border-gray-700 text-sidebar-foreground bg-sidebar">
+      <SidebarHeader 
+        className={cn(
+          "flex items-center", 
+          state === "expanded" ? "p-4 justify-start" : "p-2 justify-center" 
+        )}
+      >
         {state === "expanded" ? (
-          <JapanRacerLogo />
+          <JapanRacerLogo /> // Logo normal para estado expandido
         ) : (
-          <div className="flex items-center justify-center">
-            <JapanRacerLogo className="text-2xl" />
-          </div>
+          // Logo solo ícono y más pequeño para estado colapsado
+          <JapanRacerLogo iconOnly={true} iconSize={24} /> 
         )}
       </SidebarHeader>
       <Separator className="bg-gray-700" />
       <SidebarContent className="p-4">
-        {" "}
-        {/* [^1] */}
         <SidebarGroup>
-          {" "}
-          {/* [^1] */}
-          <SidebarGroupLabel className="text-gray-400">Navegación</SidebarGroupLabel> {/* [^1] */}
+          <SidebarGroupLabel className="text-gray-400">Navegación</SidebarGroupLabel>
           <SidebarGroupContent>
-            {" "}
-            {/* [^1] */}
             <SidebarMenu>
-              {" "}
-              {/* [^1] */}
               {clientNavItems.map((item) => (
                 <SidebarMenuItem key={item.title}>
-                  {" "}
-                  {/* [^1] */}
                   <SidebarMenuButton
                     asChild
                     isActive={pathname === item.href}
                     className="data-[active=true]:bg-japan-red data-[active=true]:text-white hover:bg-japan-red/90 hover:text-white"
-                    tooltip={item.title} // [^1]
+                    tooltip={item.title}
                   >
-                    <Link href={item.href}>
-                      <item.icon className="h-5 w-5" />
-                      <span>{item.title}</span>
+                    <Link 
+                      href={item.href}
+                      className={cn(
+                        "flex items-center h-full",
+                        state === "expanded" ? "gap-3" : "justify-center w-full"
+                      )}
+                    >
+                      <item.icon className="h-5 w-5 flex-shrink-0" />
+                      {state === "expanded" || isMobile ? ( 
+                        <span className="whitespace-normal break-words text-sm leading-snug">
+                          {item.title}
+                        </span>
+                      ) : (
+                        <span className="sr-only">{item.title}</span>
+                      )}
                     </Link>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
@@ -99,9 +102,21 @@ export function AppSidebar() {
                     className="data-[active=true]:bg-japan-red data-[active=true]:text-white hover:bg-japan-red/90 hover:text-white"
                     tooltip={item.title}
                   >
-                    <Link href={item.href}>
-                      <item.icon className="h-5 w-5" />
-                      <span>{item.title}</span>
+                    <Link 
+                      href={item.href}
+                      className={cn(
+                        "flex items-center h-full",
+                        state === "expanded" ? "gap-3" : "justify-center w-full"
+                      )}
+                    >
+                      <item.icon className="h-5 w-5 flex-shrink-0" />
+                      {state === "expanded" || isMobile ? (
+                        <span className="whitespace-normal break-words text-sm leading-snug">
+                          {item.title}
+                        </span>
+                      ) : (
+                        <span className="sr-only">{item.title}</span>
+                      )}
                     </Link>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
@@ -109,20 +124,36 @@ export function AppSidebar() {
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
+        <Separator className="my-4 bg-gray-700" />
+        <SidebarFooter className="p-4 mt-auto">
+          <SidebarMenu>
+            <SidebarMenuItem>
+              {/* Envolver el contenido del botón en un Link si es una acción de navegación */}
+              <SidebarMenuButton 
+                asChild /* Si es un link, usar asChild */
+                className="hover:bg-japan-red/90 hover:text-white w-full" /* w-full para que el link ocupe el botón */
+              >
+                <Link 
+                  href="/login" // Asumiendo que cerrar sesión lleva a login
+                  className={cn(
+                    "flex items-center h-full", // Quitado w-full de aquí si el botón ya lo tiene
+                    state === "expanded" ? "gap-3" : "justify-center w-full" // w-full aquí para centrar el ícono si está colapsado
+                  )}
+                >
+                  <LogOut className="h-5 w-5 flex-shrink-0" />
+                  {state === "expanded" || isMobile ? (
+                    <span className="whitespace-normal break-words text-sm leading-snug">
+                      Cerrar Sesión
+                    </span>
+                  ) : (
+                    <span className="sr-only">Cerrar Sesión</span>
+                  )}
+                </Link>
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+          </SidebarMenu>
+        </SidebarFooter>
       </SidebarContent>
-      <Separator className="bg-gray-700" />
-      <SidebarFooter className="p-4">
-        {" "}
-        {/* [^1] */}
-        <SidebarMenu>
-          <SidebarMenuItem>
-            <SidebarMenuButton className="hover:bg-japan-red/90 hover:text-white" tooltip="Cerrar Sesión">
-              <LogOut className="h-5 w-5" />
-              <span>Cerrar Sesión</span>
-            </SidebarMenuButton>
-          </SidebarMenuItem>
-        </SidebarMenu>
-      </SidebarFooter>
     </Sidebar>
   )
 }
