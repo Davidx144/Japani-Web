@@ -1,7 +1,10 @@
 import Image from "next/image"
+import { useContext } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { PlusCircle } from "lucide-react"
+import { CartContext } from "@/app/context/CartContext"
+import { toast } from "@/components/ui/sonner"
 
 type ProductCardProps = {
   id: string
@@ -12,7 +15,15 @@ type ProductCardProps = {
   partNumber: string
 }
 
-export function ProductCard({ name, imageUrl, price, brand, partNumber }: ProductCardProps) {
+export function ProductCard({ id, name, imageUrl, price, brand, partNumber }: ProductCardProps) {
+  const { addToCart } = useContext(CartContext);
+
+  const handleAddToCart = () => {
+    const productToAdd = { id, name, imageUrl, price };
+    addToCart(productToAdd);
+    toast.success(`¡'${name}' añadido al carrito!`);
+  };
+
   return (
     <Card className="overflow-hidden transition-all hover:shadow-xl hover:border-japan-red dark:bg-gray-900/50 dark:hover:border-japan-red">
       <CardHeader className="p-0">
@@ -34,7 +45,7 @@ export function ProductCard({ name, imageUrl, price, brand, partNumber }: Produc
         <p className="text-xl font-bold text-japan-red">{price}</p>
       </CardContent>
       <CardFooter className="p-4 pt-0">
-        <Button variant="destructive" className="w-full">
+        <Button variant="destructive" className="w-full" onClick={handleAddToCart}>
           <PlusCircle className="mr-2 h-4 w-4" /> Añadir al Carrito
         </Button>
       </CardFooter>

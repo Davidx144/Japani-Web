@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
+import { CartProvider } from "@/app/context/CartContext"
 import { SidebarProvider } from "@/components/ui/sidebar" // [^1]
 import { Toaster } from "@/components/ui/toaster"
 import { cookies } from "next/headers" // [^1]
@@ -28,11 +29,13 @@ export default async function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          <SidebarProvider defaultOpen={defaultOpen}>
-            {" "}
-            {/* [^1] */}
-            {children}
-          </SidebarProvider>
+          <CartProvider>
+            <SidebarProvider defaultOpen={defaultOpen}>
+              {" "}
+              {/* [^1] */}
+              {children}
+            </SidebarProvider>
+          </CartProvider>
           <Toaster />
         </ThemeProvider>
       </body>

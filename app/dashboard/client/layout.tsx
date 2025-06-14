@@ -1,16 +1,25 @@
+"use client"; // Required for useContext
+
 import type React from "react"
+import { useContext } from "react"; // Import useContext
+import Link from "next/link"; // Import Link
 import { AppSidebar } from "@/components/app-sidebar"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { SidebarTrigger } from "@/components/ui/sidebar" // [^4]
-import { Search, UserCircle } from "lucide-react"
+import { Search, UserCircle, ShoppingCart } from "lucide-react" // Import ShoppingCart
 import { Suspense } from "react"
+import { CartContext } from "@/app/context/CartContext"; // Import CartContext
 
 export default function ClientDashboardLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+  const { cartItems } = useContext(CartContext);
+
+  const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+
   return (
     // Changed from 'grid' to 'flex'.
     // The AppSidebar component itself will manage its width (via its internal spacer div),
@@ -39,6 +48,17 @@ export default function ClientDashboardLayout({
               </div>
             </form>
           </div>
+          <Link href="/dashboard/client/cart" passHref>
+            <Button variant="ghost" size="icon" className="relative rounded-full">
+              <ShoppingCart className="h-6 w-6" />
+              <span className="sr-only">Carrito de Compras</span>
+              {totalItems > 0 && (
+                <span className="absolute top-0 right-0 flex items-center justify-center w-5 h-5 text-xs font-bold text-white bg-japan-red rounded-full transform translate-x-1/2 -translate-y-1/2">
+                  {totalItems}
+                </span>
+              )}
+            </Button>
+          </Link>
           <Button variant="ghost" size="icon" className="rounded-full">
             <UserCircle className="h-6 w-6" />
             <span className="sr-only">Perfil de Usuario</span>
